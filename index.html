@@ -82,31 +82,25 @@ nav.scrolled .nav-links a:hover{color:var(--blue-d)}
 }
 .nav-cta:hover{background:#e8aa1d;transform:translateY(-1px)}
 .nav-menu-toggle{
-  display:none;align-items:center;justify-content:center;
-  width:44px;height:44px;border:1px solid rgba(255,255,255,.38);
-  border-radius:8px;background:rgba(255,255,255,.08);cursor:pointer;
+  display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  width:44px;height:44px;border:0;border-radius:0;background:transparent;cursor:pointer;
 }
 .nav-menu-toggle span,.nav-menu-toggle::before,.nav-menu-toggle::after{
-  content:'';display:block;width:19px;height:2px;background:#fff;border-radius:2px;
+  content:'';display:block;width:24px;height:2.5px;background:#fff;border-radius:2px;
   transition:transform .24s ease,opacity .24s ease,background .24s ease;
 }
-.nav-menu-toggle{flex-direction:column;gap:5px}
-nav.scrolled .nav-menu-toggle{border-color:var(--line-2);background:#fff}
 nav.scrolled .nav-menu-toggle span,nav.scrolled .nav-menu-toggle::before,nav.scrolled .nav-menu-toggle::after{background:var(--ink)}
+nav.menu-open .nav-logo{opacity:0;pointer-events:none}
 nav.menu-open .nav-menu-toggle span{opacity:0}
-nav.menu-open .nav-menu-toggle::before{transform:translateY(7px) rotate(45deg)}
-nav.menu-open .nav-menu-toggle::after{transform:translateY(-7px) rotate(-45deg)}
+nav.menu-open .nav-menu-toggle::before{transform:translateY(7.5px) rotate(45deg)}
+nav.menu-open .nav-menu-toggle::after{transform:translateY(-7.5px) rotate(-45deg)}
 .mobile-menu{
-  display:none;position:fixed;top:78px;left:18px;right:18px;z-index:999;
-  background:rgba(255,255,255,.97);border:1px solid var(--line);
-  border-radius:14px;padding:10px;box-shadow:0 24px 70px rgba(30,49,59,.18);
+  display:none;position:fixed;z-index:999;top:0;right:0;bottom:0;left:24vw;
+  background:#fff;transform:translateX(calc(100% + 24vw));transition:transform .28s ease;
+  pointer-events:none;box-shadow:-24px 0 80px rgba(30,49,59,.26);
 }
-.mobile-menu a{
-  display:block;padding:14px 14px;border-radius:9px;color:var(--ink);
-  text-decoration:none;font-size:15px;font-weight:600;
-}
-.mobile-menu a:active{background:var(--paper-2)}
 .mobile-menu-head,.mobile-menu-ctas{display:none}
+.mobile-menu a{text-decoration:none}
 .carousel-wrap{position:relative}
 .carousel-arrow{display:none}
 
@@ -204,7 +198,7 @@ nav.menu-open .nav-menu-toggle::after{transform:translateY(-7px) rotate(-45deg)}
   color:#E7C36B;;margin-top:.5em;
 }
 .hero-sub{
-  font-size:clamp(12px,1.2vw,16px);color:rgba(255,255,255,.76);font-weight:400;
+  font-size:clamp(14px,1.2vw,16px);color:rgba(255,255,255,.76);font-weight:400;
   line-height:1.64;max-width:56ch;margin:22px 0 36px;
   opacity:0;transform:translateY(18px);
 }
@@ -433,11 +427,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(255,255,255,.34);font-weight:400}
 .footer-bottom a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
 .footer-bottom a:hover{color:var(--yellow)}
-
-.mobile-only{display:none}
-.mobile-disclosure{display:none}
-.mobile-disclosure summary{display:none}
-.mobile-disclosure > :not(summary){margin-top:0}
+.mobile-only,.mobile-disclosure{display:none}
 
 /* ── RESPONSIVE ────────────────────────────────────────── */
 @media(max-width:980px){
@@ -446,7 +436,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .nav-logo img{height:58px}
   .nav-actions{gap:10px}
   .nav-menu-toggle{display:flex}
-  nav.menu-open + .mobile-menu{display:block}
   .dim-grid,.stages-grid,.school-benefits,.careers-grid{grid-template-columns:1fr 1fr}
   .career-item:nth-child(3n){border-right:1px solid var(--line-2)}
   .career-item:nth-child(2n){border-right:none}
@@ -462,151 +451,108 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .wrap{padding:0 22px}
   nav{padding:0 18px}
   nav.menu-open{background:transparent;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
-  nav.menu-open .nav-logo{opacity:0;pointer-events:none}
-  nav.menu-open .nav-cta{display:none}
-  .nav-cta{padding:10px 17px;font-size:13px}
   .nav-actions .nav-cta{display:none}
   .mobile-menu{
-    top:0;right:0;bottom:0;left:24vw;display:block;
-    transform:translateX(calc(100% + 24vw));transition:transform .28s ease;
-    border:0;border-radius:0;padding:126px 26px 36px;background:#fff;
-    box-shadow:-24px 0 80px rgba(30,49,59,.28);pointer-events:none;
+    display:block;padding:118px 26px 34px;border:0;border-radius:0;pointer-events:none;
   }
   .mobile-menu::before{
     content:'';position:fixed;top:0;bottom:0;right:100%;width:24vw;
     background:rgba(9,15,18,.68);backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);
   }
-  nav.menu-open + .mobile-menu{display:block;transform:translateX(0);pointer-events:auto}
+  nav.menu-open + .mobile-menu{transform:translateX(0);pointer-events:auto}
   .mobile-menu-head{
-    display:flex;position:absolute;top:26px;left:26px;right:26px;
+    display:flex;position:absolute;top:24px;left:26px;right:26px;
     align-items:center;justify-content:space-between;
   }
-  .mobile-menu-logo{height:56px;width:auto;display:block;margin-left:-8px}
+  .mobile-menu-logo{height:54px;width:auto;display:block;margin-left:-8px}
   .mobile-menu-close{
-    width:54px;height:54px;border:2px solid var(--orange);border-radius:6px;background:#fff;
-    color:var(--ink);font-size:0;position:relative;cursor:pointer;
+    width:48px;height:48px;border:0;background:transparent;color:var(--ink);
+    font-size:0;position:relative;cursor:pointer;
   }
   .mobile-menu-close::before,.mobile-menu-close::after{
-    content:'';position:absolute;left:15px;right:15px;top:25px;height:2.5px;
+    content:'';position:absolute;left:10px;right:10px;top:23px;height:2.5px;
     background:var(--ink);border-radius:2px;
   }
   .mobile-menu-close::before{transform:rotate(45deg)}
   .mobile-menu-close::after{transform:rotate(-45deg)}
-  .mobile-menu a{
-    font-family:'Fraunces',serif;font-size:27px;font-weight:600;line-height:1.15;
-    padding:24px 0;border-bottom:1px solid var(--line);border-radius:0;color:var(--ink);
+  .mobile-menu > a{
+    display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:600;line-height:1.15;
+    padding:17px 0;border-bottom:1px solid var(--line);border-radius:0;color:var(--ink);
   }
-  .mobile-menu a:active{background:transparent;color:var(--blue-d)}
-  .mobile-menu-ctas{display:flex;flex-direction:column;gap:14px;margin-top:34px}
+  .mobile-menu-ctas{display:flex;flex-direction:column;gap:12px;margin-top:26px}
   .mobile-menu-ctas a{
-    font-family:'Hanken Grotesk',sans-serif;font-size:16px;font-weight:700;text-align:center;
-    padding:17px 18px;border:1.5px solid var(--line-2);border-radius:8px;
+    display:block;font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:700;text-align:center;
+    padding:15px 16px;border:1.5px solid var(--line-2);border-radius:8px;color:var(--ink);
   }
   .mobile-menu-ctas .menu-parent{background:var(--orange);border-color:var(--orange)}
   .mobile-menu-ctas .menu-school{background:#fff}
-  .sec-pad{padding:58px 0}
+  .sec-pad{padding:58px 0;scroll-margin-top:92px}
+  section{scroll-margin-top:92px}
   .section-tag{font-size:20px;margin-bottom:18px}
   .sec-head,.belief-headline,.fp-headline,.fs-headline{line-height:1.08}
   .hero{min-height:640px;height:100svh}
-  .hero-video-wrap{object-position:63% center;filter:brightness(.52) contrast(1.05)}
-  .hero-overlay{background:linear-gradient(180deg,rgba(12,20,25,.2) 0%,rgba(12,20,25,.42) 44%,rgba(12,20,25,.66) 100%)}
+  .hero-video-wrap{object-position:72% center;filter:brightness(.52) contrast(1.05)}
   .hero-grid,.hero-glow,.hero-scroll{display:none}
   .hero-content{
-    margin:0;padding:122px 26px 34px;max-width:none;width:100%;height:100%;
+    margin:0;padding:112px 26px 34px;max-width:none;width:100%;height:100%;
     min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;
     align-items:flex-start;text-align:left;
   }
-  .hero-title{
-    font-size:20px;line-height:1.12;margin:0 0 14px;max-width:none;
-    text-align:left;letter-spacing:0;
-  }
+  .hero-title{font-size:24px;line-height:1.12;margin:0 0 10px;max-width:none;letter-spacing:0;text-align:left}
   .hero-title-main,.hero-title-meta{display:block}
   .hero-title-main{white-space:nowrap}
-  .hero-title-meta{font-size:.86em;margin-top:8px}
-  .hero-byline{
-    font-size:15px;white-space:normal;max-width:31ch;margin:0;
-    text-align:left;line-height:1.45;
-  }
+  .hero-desktop-sep{display:none}
+  .hero-title-meta{font-size:.86em;margin-top:7px}
+  .hero-byline{font-size:14px;white-space:normal;max-width:32ch;margin:0;text-align:left;line-height:1.45}
   .hero-rotator{
     position:absolute;left:26px;right:26px;top:0;bottom:0;width:auto;min-height:0;
-    margin:0;display:flex;align-items:center;justify-content:flex-start;padding:86px 0 148px;
+    display:flex;align-items:center;justify-content:flex-start;padding:128px 0 168px;
   }
-  .hero-frame{
-    position:absolute;inset:0;display:flex;flex-direction:column;
-    opacity:0;transform:translateY(20px);pointer-events:none;
-  }
-  .hero-headline-frame{animation:heroHeadlineCycle 8s ease-in-out infinite}
-  .hero-copy-frame{animation:heroCopyCycle 8s ease-in-out infinite}
-  @keyframes heroHeadlineCycle{
-    0%,38%{opacity:1;transform:translateY(0)}
-    46%,100%{opacity:0;transform:translateY(-16px)}
-  }
-  @keyframes heroCopyCycle{
-    0%,44%{opacity:0;transform:translateY(18px)}
-    52%,88%{opacity:1;transform:translateY(0)}
-    96%,100%{opacity:0;transform:translateY(-12px)}
-  }
-  .hero-frame{justify-content:center;align-items:flex-start;text-align:left}
+  .hero-frame{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;opacity:0;transform:translateY(20px);pointer-events:none}
+  .hero-headline-frame{animation:heroHeadlineCycle 10s ease-in-out infinite}
+  .hero-copy-frame{animation:heroCopyCycle 10s ease-in-out infinite}
+  @keyframes heroHeadlineCycle{0%,38%{opacity:1;transform:translateY(0)}46%,100%{opacity:0;transform:translateY(-16px)}}
+  @keyframes heroCopyCycle{0%,42%{opacity:0;transform:translateY(18px)}50%,92%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-12px)}}
   .hero-headline-wrap{display:flex;justify-content:flex-start;width:100%}
-  .hero-h1{
-    font-size:clamp(54px,16vw,70px);line-height:.92;letter-spacing:-.045em;
-    max-width:9ch;width:100%;margin:0;text-align:left;
-    opacity:1!important;transform:none!important;
-  }
-  .hero-h1 .h1-connector{
-    font-size:.34em;line-height:1.18;margin:.62em 0 0;max-width:12ch;
-    text-align:left;
-  }
-  .hero-sub{
-    font-size:clamp(20px,5.6vw,24px);line-height:1.42;max-width:28ch;margin:0;
-    font-family:'Fraunces',serif;font-style:italic;color:#fff;text-align:left;
-    opacity:1;transform:none;
-  }
-  .hero-ctas{
-    position:absolute;left:26px;right:26px;bottom:34px;width:auto;max-width:420px;
-    gap:12px;margin:0 auto;display:flex;flex-direction:column;
-  }
+  .hero-h1{font-size:clamp(54px,16vw,70px);line-height:.92;letter-spacing:-.045em;max-width:9ch;width:100%;margin:0;text-align:left;opacity:1!important;transform:none!important}
+  .hero-h1 .h1-connector{font-size:.24em;line-height:1.15;margin:.62em 0 0;max-width:none;white-space:nowrap;text-align:left}
+  .hero-sub{font-size:17px;line-height:1.5;max-width:31ch;margin:0;color:#fff;text-align:left;opacity:1;transform:none}
+  .hero-ctas{position:absolute;left:26px;right:26px;bottom:34px;width:auto;max-width:420px;gap:12px;margin:0 auto;display:flex;flex-direction:column}
   .hero-ctas a{width:100%;justify-content:center;padding:15px 18px}
   .carousel-wrap{margin-left:-22px;margin-right:-22px}
   .dim-grid,.stages-grid,.school-benefits{
-    position:relative;display:flex;overflow-x:auto;gap:14px;margin-left:-22px;margin-right:-22px;
-    padding:0 12vw 18px;margin-left:0;margin-right:0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
+    display:flex;overflow-x:auto;gap:14px;padding:0 12vw 18px;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
   }
   .dim-grid::-webkit-scrollbar,.stages-grid::-webkit-scrollbar,.school-benefits::-webkit-scrollbar{display:none}
-  .dim-grid::before,.dim-grid::after,.stages-grid::before,.stages-grid::after,.school-benefits::before,.school-benefits::after{
-    display:none;
-  }
   .carousel-arrow{
     display:flex;position:absolute;top:46%;z-index:5;align-items:center;justify-content:center;
     width:28px;height:28px;border:1px solid rgba(30,49,59,.16);border-radius:50%;
     background:rgba(255,255,255,.9);color:var(--ink);font-size:20px;line-height:1;
     box-shadow:0 10px 26px rgba(30,49,59,.1);cursor:pointer;
   }
-  .carousel-arrow.prev{left:8px}
-  .carousel-arrow.next{right:8px}
+  .carousel-arrow.prev{left:4px}
+  .carousel-arrow.next{right:4px}
   .dim-card,.stage-item,.benefit-card{flex:0 0 76vw;min-width:0;scroll-snap-align:center;padding:24px 22px;border-radius:14px}
   .dim-card:hover,.stage-item:hover,.benefit-card:hover{transform:none}
   .careers-grid{grid-template-columns:1fr 1fr;margin:34px 0 38px;border-top:none;gap:10px}
   .career-item{border:1px solid var(--line-2)!important;border-radius:12px;padding:16px 14px;background:#fff}
-  .career-item:nth-child(n+5){display:none}
   .career-role{font-size:13px;line-height:1.45}
-  .career-role strong{font-size:14px}
+  .career-role strong{font-size:14px;font-weight:800;color:var(--ink)}
   .career-item:nth-child(2n){border-right:none}
   .belief-bottom{gap:22px;padding-top:30px}
   .ba,.journey-intro,.fp-sub,.fs-desc p,.why-body,.cc-body,.commit-body{font-size:14.5px;line-height:1.62}
   .journey-intro,.journey-lead{margin-bottom:30px}
-  .foundation-wrap{border-radius:14px;margin-bottom:22px}
   .foundation{padding:24px 22px;gap:18px}
-  .fnd-00{font-size:48px}
-  .fnd-h{font-size:22px}
-  .fnd-p{font-size:14px;line-height:1.62}
-  .stages-grid{margin-bottom:34px}
-  .stage-num{font-size:38px;margin-bottom:14px}
-  .stage-detail,.dim-desc,.benefit-desc,.why-item-body,.fp-item-body,.tl-desc{font-size:13.5px;line-height:1.55}
   .cert-callout,.commit-strip{padding:26px 22px;border-radius:15px;gap:26px}
   .cert-callout::before,.commit-strip::before{display:none}
-  .cert-mock{padding:20px}
+  .mobile-disclosure{display:block;border-top:1px solid rgba(255,255,255,.18);padding-top:16px}
+  .mobile-disclosure summary{display:flex;align-items:center;justify-content:space-between;list-style:none;font-weight:700;color:var(--blue-d);cursor:pointer;padding:8px 0}
+  .mobile-disclosure summary::-webkit-details-marker{display:none}
+  .mobile-disclosure summary::after{content:'+';font-size:24px;line-height:1;color:var(--orange)}
+  .mobile-disclosure[open] summary::after{content:'-'}
+  .cert-callout .mobile-disclosure summary,.commit-strip .mobile-disclosure summary{color:var(--yellow)}
+  .cert-callout .mobile-disclosure summary::after,.commit-strip .mobile-disclosure summary::after{color:var(--yellow)}
   .timeline::before{left:9px}
   .tl-dot{left:2px;top:22px;width:15px;height:15px}
   .tl-title{font-size:17px;margin-bottom:4px}
@@ -620,7 +566,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .school-benefits{margin-bottom:34px}
   .year1-free{align-items:flex-start;border-radius:14px;padding:8px;gap:10px}
   .year1-free .y1-label{font-size:14px;line-height:1.35}
-  .commit-strip .mobile-disclosure summary{color:var(--yellow)}
   .commit-right{gap:12px;padding-top:22px}
   .why-item{grid-template-columns:24px 1fr;gap:13px;padding:20px 0}
   .final{padding:72px 0}
@@ -632,15 +577,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .footer-top > div:nth-child(3){grid-column:2;grid-row:2}
   .footer-top > div:nth-child(4){grid-column:2;grid-row:2;margin-top:116px}
   .footer-bottom{align-items:flex-start;flex-direction:column;gap:10px}
-  .mobile-only{display:block}
-  .mobile-disclosure{display:block;border-top:1px solid var(--line-2);padding-top:16px}
-  .mobile-disclosure summary{
-    display:flex;align-items:center;justify-content:space-between;list-style:none;
-    font-weight:700;color:var(--blue-d);cursor:pointer;padding:8px 0;
-  }
-  .mobile-disclosure summary::-webkit-details-marker{display:none}
-  .mobile-disclosure summary::after{content:'+';font-size:24px;line-height:1;color:var(--orange)}
-  .mobile-disclosure[open] summary::after{content:'-'}
 }
 @media(prefers-reduced-motion:reduce),(max-width:600px){
   html{scroll-behavior:auto}
@@ -692,26 +628,26 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div class="hero-glow"></div>
   <div class="hero-grid" id="hGrid"></div>
   <div class="hero-content">
-    <p class="hero-title" id="htitle"><span class="hero-title-main">MINDZI Future-Ready Challenge</span> <span class="hero-title-meta">India <span class="sep">|</span> <span class="yr">2026</span></span></p>
-    <p class="hero-byline" id="hby">A national challenge in AI, critical thinking, and future readiness for school students.</p>
+    <p class="hero-title" id="htitle"><span class="hero-title-main">MINDZI Future-Ready Challenge</span> <span class="hero-desktop-sep sep">|</span> <span class="hero-title-meta">India <span class="sep">|</span> <span class="yr">2026</span></span></p>
+    <p class="hero-byline" id="hby">A national challenge in AI, critical thinking, and future readiness for students in Classes 6-9.</p>
   
     <div class="hero-rotator" id="hrotator">
       <div class="hero-frame hero-headline-frame">
         <div class="hero-headline-wrap">
 
-          <div class="hero-headline-blur">
-              YOUR CHI<span class="tightLD">LD</span>'S
-              <br>
-              F<span class="futureCore">UTU</span>RE
-          </div>
+    <div class="hero-headline-blur">
+        YOUR CHI<span class="tightLD">LD</span>'S
+        <br>
+        F<span class="futureCore">UTU</span>RE
+    </div>
 
-          <h1 class="hero-h1 hero-v5" id="h1">
-              <span class="h1-solid">YOUR CHILD'S</span>
-              <span class="h1-stroke">FUTURE</span>
-              <span class="h1-connector">
-                  deserves a future-ready mind.
-              </span>
-          </h1>
+    <h1 class="hero-h1 hero-v5" id="h1">
+        <span class="h1-solid">YOUR CHILD'S</span>
+        <span class="h1-stroke">FUTURE</span>
+        <span class="h1-connector">
+            deserves a future-ready mind.
+        </span>
+    </h1>
 
         </div>
       </div>
@@ -859,7 +795,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="cc-body">Every student receives a personalised digital certificate. Rather than a generic "participant," it records their national percentile, their score across all six dimensions, and the one dimension where they were strongest - for example, <em>"Top 8% nationally, strongest in spotting AI errors."</em> A percentile shows where a student stands among everyone who competed: top 8% means they scored higher than 92 out of every 100 students nationally.</div>
         <details class="mobile-disclosure" open>
           <summary>What the percentile means</summary>
-          <div class="cc-body">Rather than a generic "participant," the certificate records the student's national percentile and strongest dimension - for example, <em>"Top 8% nationally, strongest in spotting AI errors."</em> Top 8% means they scored higher than 92 out of every 100 students nationally.</div>
+          <div class="cc-body">Top 8% means a student scored higher than 92 out of every 100 students nationally.</div>
         </details>
       </div>
       <div class="cert-mock">
@@ -901,7 +837,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="tl-when">September 2026</div>
         <div class="tl-body">
           <div class="tl-title">Learning Platform Live</div>
-          <div class="tl-desc">Students start with the Foundation module, then move through six future-readiness dimensions guided by AIRA.</div>
+          <div class="tl-desc">Students begin with the Foundation module, which builds the mental model needed for everything that follows. They then progress through six dimensions of future readiness, guided by AIRA through interactive lessons and real-world challenges.</div>
         </div>
       </div>
       <div class="tl-row">
@@ -909,7 +845,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="tl-when">October 2026</div>
         <div class="tl-body">
           <div class="tl-title">Study Material Goes Live</div>
-          <div class="tl-desc">Deeper reference material opens so students can strengthen their understanding before practice begins.</div>
+          <div class="tl-desc">Structured study material launches alongside the platform - a deeper reference students can use to strengthen their understanding ahead of the Practice Challenge and the School Round.</div>
         </div>
       </div>
       <div class="tl-row">
@@ -917,7 +853,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="tl-when">November 2026</div>
         <div class="tl-body">
           <div class="tl-title">Practice Challenge Unlocks</div>
-          <div class="tl-desc">Scenario-based practice opens with unlimited attempts and AIRA explanations.</div>
+          <div class="tl-desc">Scenario-based practice questions open ahead of the School Round. Unlimited attempts, with AIRA explaining every answer - building confidence before competition day.</div>
         </div>
       </div>
       <div class="tl-row is-key">
@@ -925,7 +861,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="tl-when">December 2026</div>
         <div class="tl-body">
           <div class="tl-title">School Round</div>
-          <div class="tl-desc">A 60-minute online school exam across six dimensions. Strong performers advance.</div>
+          <div class="tl-desc">Sixty minutes, online, at school. All registered students compete for 600 points across six dimensions. The strongest performers advance to the City Round, and every participant receives a ranked certificate.</div>
           <span class="tl-tag">All registered students</span>
         </div>
       </div>
@@ -934,7 +870,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="tl-when">January 2027</div>
         <div class="tl-body">
           <div class="tl-title">City Round</div>
-          <div class="tl-desc">Top school performers compete locally with harder questions and a live city leaderboard.</div>
+          <div class="tl-desc">The best from each school compete at the city level. Harder questions, with a live leaderboard showing where each student stands locally.</div>
           <span class="tl-tag">Top performers from the School Round</span>
         </div>
       </div>
@@ -943,7 +879,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="tl-when">March / April 2027</div>
         <div class="tl-body">
           <div class="tl-title">National Round</div>
-          <div class="tl-desc">The strongest students compete for national rankings in a fully proctored final.</div>
+          <div class="tl-desc">The country's strongest students compete for the highest national rankings. Fully proctored, with a live national leaderboard and final national results.</div>
           <span class="tl-tag">Top performers from the City Round</span>
         </div>
       </div>
@@ -952,7 +888,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="tl-when">Within 14 days of each round</div>
         <div class="tl-body">
           <div class="tl-title">Digital Ranked Certificates Issued</div>
-          <div class="tl-desc">Certificates include national percentile, dimension scores, and each student's strongest area.</div>
+          <div class="tl-desc">Every participant receives their personalised digital ranked certificate - national percentile, dimension-by-dimension scores, and the one dimension where they were strongest - within 14 days of the round closing.</div>
         </div>
       </div>
     </div>
@@ -966,11 +902,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       <div>
         <div class="section-tag">Parents</div>
         <h2 class="fp-headline">Register<br>your child.</h2>
+        <p class="fp-sub">Open to students currently studying in Classes 6-9. Registration fee: ₹649 (inclusive of all applicable taxes).</p>
         <p class="fp-sub">The registration fee covers everything a student needs for the School Round: full access to the learning platform, the Practice Challenge, School Round entry, and a nationally ranked digital certificate. Students who qualify for the City and National Rounds pay a separate, smaller fee for each of those exams.</p>
-        <details class="mobile-disclosure" open>
-          <summary>What is included</summary>
-          <p class="fp-sub">Students who qualify for the City and National Rounds pay a separate, smaller fee for each of those exams.</p>
-        </details>
         <div class="fp-stats">
           <div><div class="fp-stat-n">600</div><div class="fp-stat-l">POINTS</div></div>
           <div><div class="fp-stat-n">60</div><div class="fp-stat-l">MINUTES</div></div>
@@ -1014,11 +947,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <h2 class="fs-headline">Bring Mindzi to your school.</h2>
       </div>
       <div class="fs-desc">
-        <p>Mindzi is open to every school in India - CBSE, ICSE, IB, Cambridge, or State Board. AI thinking skills are not a requirement of one syllabus; they matter for every student, whatever board they follow.</p>
-        <details class="mobile-disclosure" open>
-          <summary>How it fits different schools</summary>
-          <p>For CBSE schools rolling out the CT&amp;AI curriculum, Mindzi is the competition layer that takes students from knowledge to applied judgment. For schools where AI is taught more technically, it tests the thinking side the technical subject leaves out.</p>
-        </details>
+        <p>Mindzi is open to every school in India - CBSE, ICSE, IB, Cambridge, and State Boards. The challenge is designed for students currently studying in Classes 6-9.</p>
+        <p>For CBSE schools rolling out the CT&amp;AI curriculum, Mindzi is the competition layer that takes students from knowledge to applied judgment. For schools where AI is taught more technically, it tests the thinking side the technical subject leaves out. For every other school, it is a structured national AI challenge.</p>
         <p>One coordinator. Minimal administration. Your students compete on a national stage, and your school is recognised alongside them.</p>
         <a href="register-school.html" class="btn-dark">Register your school</a>
       </div>
@@ -1060,7 +990,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="commit-body">Partnering with Mindzi asks very little of a school: one coordinator, a few hours across the year, the parent communications we prepare for the coordinator to circulate to parents, and a computer lab for sixty minutes on competition day. In return, your students gain access to a unique learning and a nationally benchmarked challenge, you receive a school-level insights report, and your school is recognised on every certificate earned by your students.</div>
         <details class="mobile-disclosure" open>
           <summary>What the school receives</summary>
-          <div class="commit-body">In return, your students gain access to a unique learning journey and a nationally benchmarked challenge, you receive a school-level insights report, and your school is recognised on every certificate earned by your students.</div>
+          <div class="commit-body">Students gain access to a unique learning journey and nationally benchmarked challenge; your school receives school-level insights and recognition on every student certificate.</div>
         </details>
         <div class="year1-free">
           <span class="y1-badge">Free</span>
@@ -1084,10 +1014,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       <div>
         <h2 class="sec-head" style="margin-bottom:24px">Built for every school. Every board.</h2>
         <p class="why-body">Students today are beginning to learn about AI in school. MINDZI takes the next step: giving them a chance to apply that knowledge through real-world scenarios, national rankings, live leaderboards, and meaningful performance insights. Whether a student studies under CBSE, ICSE, IB, Cambridge, or a State Board, the future-ready skills being tested are the same.</p>
-        <details class="mobile-disclosure" open>
-          <summary>Why it works across boards</summary>
-          <p class="why-body">Whether a student studies under CBSE, ICSE, IB, Cambridge, or a State Board, the future-ready skills being tested are the same.</p>
-        </details>
       </div>
       <div class="why-right">
         <div class="why-item">
@@ -1191,11 +1117,8 @@ const closeMobileMenu = () => {
 
 const syncMobileDisclosures = () => {
   document.querySelectorAll('.mobile-disclosure').forEach(detail => {
-    if (mobileQuery.matches) {
-      detail.removeAttribute('open');
-    } else {
-      detail.setAttribute('open', '');
-    }
+    if (mobileQuery.matches) detail.removeAttribute('open');
+    else detail.setAttribute('open', '');
   });
 };
 
@@ -1222,22 +1145,8 @@ document.addEventListener('click', event => {
 });
 
 mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    closeMobileMenu();
-  });
+  link.addEventListener('click', closeMobileMenu);
 });
-
-window.scrollCarouselButton = function(button, direction){
-  const wrap = button.closest('.carousel-wrap');
-  const scroller = wrap.querySelector('.dim-grid, .stages-grid, .school-benefits');
-  const card = scroller.querySelector('.dim-card, .stage-item, .benefit-card');
-  const gap = parseFloat(getComputedStyle(scroller).gap) || 0;
-  const distance = card ? card.getBoundingClientRect().width + gap : scroller.clientWidth * .82;
-  const current = Math.round(scroller.scrollLeft / distance);
-  const maxIndex = Math.max(0, scroller.querySelectorAll('.dim-card, .stage-item, .benefit-card').length - 1);
-  const target = Math.min(maxIndex, Math.max(0, current + direction));
-  scroller.scrollTo({ left: target * distance, behavior: 'smooth' });
-};
 
 window.addEventListener('scroll', () => {
 
@@ -1256,10 +1165,6 @@ window.addEventListener('scroll', () => {
 });
 
 const isMobile = mobileQuery.matches;
-const revealDistance = isMobile ? 16 : 34;
-const revealDuration = isMobile ? .45 : .7;
-const revealStagger = isMobile ? .04 : .1;
-
 const heroIntro = gsap.timeline({ delay:.25 })
   .to('#htitle', { opacity:1, y:0, duration:.8, ease:'power3.out' })
   .to('#hby',    { opacity:1, y:0, duration:.7, ease:'power3.out' }, '-=.5')
@@ -1278,21 +1183,21 @@ if (!isMobile) {
   gsap.to('.hero-content', { yPercent:14, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:1.2 } });
 }
 
-const reveal = (sel, opts={}) => gsap.from(sel, Object.assign({ opacity:0, y:revealDistance, duration:revealDuration, ease:'power3.out' }, opts));
-gsap.utils.toArray('.section-tag').forEach(el=>{ gsap.from(el,{opacity:0,x:isMobile ? -10 : -24,duration:isMobile ? .4 : .6,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}); });
+const reveal = (sel, opts={}) => gsap.from(sel, Object.assign({ opacity:0, y:34, duration:.7, ease:'power3.out' }, opts));
+gsap.utils.toArray('.section-tag').forEach(el=>{ gsap.from(el,{opacity:0,x:-24,duration:.6,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}); });
 reveal('.belief-headline',{scrollTrigger:{trigger:'.belief-headline',start:'top 84%'}});
 reveal('.career-item',{stagger:.07,duration:.55,scrollTrigger:{trigger:'.careers-grid',start:'top 84%'}});
 reveal('.belief-bottom > *',{stagger:.14,scrollTrigger:{trigger:'.belief-bottom',start:'top 88%'}});
 reveal('.foundation-wrap',{scrollTrigger:{trigger:'.foundation-wrap',start:'top 86%'}});
-reveal('.dim-card',{stagger:isMobile ? 0 : .09,scrollTrigger:{trigger:'.dim-grid',start:'top 84%'}});
-reveal('.stage-item',{stagger:isMobile ? 0 : .12,scrollTrigger:{trigger:'.stages-grid',start:'top 84%'}});
+reveal('.dim-card',{stagger:.09,scrollTrigger:{trigger:'.dim-grid',start:'top 84%'}});
+reveal('.stage-item',{stagger:.12,scrollTrigger:{trigger:'.stages-grid',start:'top 84%'}});
 reveal('.cert-callout',{duration:.85,scrollTrigger:{trigger:'.cert-callout',start:'top 88%'}});
-reveal('.tl-row',{x:isMobile ? 0 : 24,y:0,stagger:isMobile ? .03 : .1,duration:isMobile ? .4 : .6,scrollTrigger:{trigger:'.timeline',start:'top 82%'}});
-reveal('.fp-item',{x:isMobile ? 0 : 32,y:0,stagger:isMobile ? .04 : .12,scrollTrigger:{trigger:'.fp-right',start:'top 84%'}});
-reveal('.benefit-card',{stagger:isMobile ? 0 : .08,scrollTrigger:{trigger:'.school-benefits',start:'top 84%'}});
+reveal('.tl-row',{x:24,y:0,stagger:.1,duration:.6,scrollTrigger:{trigger:'.timeline',start:'top 82%'}});
+reveal('.fp-item',{x:32,y:0,stagger:.12,scrollTrigger:{trigger:'.fp-right',start:'top 84%'}});
+reveal('.benefit-card',{stagger:.08,scrollTrigger:{trigger:'.school-benefits',start:'top 84%'}});
 reveal('.commit-strip',{duration:.85,scrollTrigger:{trigger:'.commit-strip',start:'top 88%'}});
-reveal('.why-item',{x:isMobile ? 0 : 28,y:0,stagger:isMobile ? .04 : .13,scrollTrigger:{trigger:'.why-right',start:'top 84%'}});
-reveal('.final-h',{y:isMobile ? 24 : 60,duration:isMobile ? .55 : .9,scrollTrigger:{trigger:'.final-h',start:'top 84%'}});
+reveal('.why-item',{x:28,y:0,stagger:.13,scrollTrigger:{trigger:'.why-right',start:'top 84%'}});
+reveal('.final-h',{y:60,duration:.9,scrollTrigger:{trigger:'.final-h',start:'top 84%'}});
 reveal('.final-sub',{scrollTrigger:{trigger:'.final-sub',start:'top 88%'}});
 reveal('.final-ctas',{scrollTrigger:{trigger:'.final-ctas',start:'top 90%'}});
 </script>
