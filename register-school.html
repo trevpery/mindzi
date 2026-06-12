@@ -91,6 +91,9 @@ textarea{resize:vertical;min-height:80px}
 .success-overlay{display:none;position:fixed;inset:0;background:rgba(17,17,17,.9);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
 .success-overlay.show{display:flex}
 .success-card{background:var(--paper);border-radius:22px;padding:56px 46px;max-width:480px;width:90%;text-align:center;box-shadow:0 32px 80px rgba(0,0,0,.3)}
+.success-logo{width:118px;height:auto;display:block;margin:0 auto 24px;}
+.success-challenge{font-family:'Hanken Grotesk',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);line-height:1.35;margin:-12px auto 24px;max-width:none;white-space:nowrap;}
+.success-body em{font-style:normal;color:var(--ink);font-weight:600;}
 .success-icon{width:60px;height:60px;margin:0 auto 22px;border-radius:50%;background:rgba(37,71,208,.08);display:flex;align-items:center;justify-content:center;color:var(--accent)}
 .success-icon svg{width:30px;height:30px}
 .success-h{font-family:'Fraunces',serif;font-size:34px;color:var(--ink);margin-bottom:14px;font-weight:600}
@@ -178,6 +181,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .tm-item{gap:13px;padding-bottom:18px}
   .tm-what{font-size:13.5px;line-height:1.35}
   .success-card{padding:38px 26px;border-radius:16px}
+  .success-logo{width:104px;margin-bottom:20px;}
+  .success-challenge{font-size:10px;letter-spacing:.025em;margin:-8px auto 20px;white-space:nowrap;}
   .success-h{font-size:30px}
   .success-body{font-size:14px;line-height:1.65}
   footer{padding:46px 0 28px}
@@ -443,12 +448,16 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 <!-- SUCCESS -->
 <div class="success-overlay" id="successOverlay">
   <div class="success-card">
+    <img class="success-logo" src="mindzi-logo-dark.png" alt="Mindzi">
+    <div class="success-challenge">
+      MINDZI Future-Ready Challenge | India | 2026
+    </div>
     <div class="success-icon"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15.5l5.5 5.5L24 8.5"/></svg></div>
     <div class="success-h">Registered.</div>
     <div class="success-body">
       Thank you for registering <strong id="successSchool"></strong>.<br><br>
       We've saved your school's spot. Our team will contact you in July 2026 to complete onboarding and set up your coordinator account.<br><br>
-      <em>We look forward to working with you.</em>
+      <span class="success-final-line">We look forward to working with you.</span>
     </div>
     <button class="success-close" onclick="document.getElementById('successOverlay').classList.remove('show')">Close</button>
   </div>
