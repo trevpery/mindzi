@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Mindzi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E313B;--blue:#2547D0;--blue-l:#E4E9FB;
+  --orange:#2547D0;--orange-d:#1B36A6;
+  --white:#FFFFFF;--off:#F2F3F3;--warm:#F2F3F3;
+  --mid:#5E6663;--light:#8C9591;--border:#DCDFDF;
+  --amber:#FFBC2B;--yellow:#FFEF12;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Hanken Grotesk',sans-serif;background:var(--off);color:var(--navy);min-height:100vh}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:96px;
+  background:rgba(30,49,59,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.nav-logo{display:flex;align-items:center;text-decoration:none}
+.nav-logo img{height:72px;width:auto;display:block;filter:brightness(0) invert(1)}
+.nav-back{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s}
+.nav-back:hover{color:var(--white)}
+.nav-back::before{content:'←'}
+
+/* ── HERO ── */
+.hero{
+  background:var(--navy);padding:148px 52px 80px;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+  background-size:100px 100px;pointer-events:none;
+}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:2}
+.hero-tag{font-size:14px;letter-spacing:4px;color:var(--amber);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.hero-h{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(46px,6vw,78px);line-height:.96;letter-spacing:-.02em;color:var(--white);margin-bottom:20px}
+.hero-meta{display:flex;gap:24px;flex-wrap:wrap}
+.hero-meta span{font-size:12px;color:rgba(255,255,255,.35);font-weight:400}
+.hero-meta span strong{color:rgba(255,255,255,.55);font-weight:500}
+
+/* ── TOC ── */
+.toc-wrap{background:var(--white);border-bottom:1px solid var(--border)}
+.toc-inner{max-width:800px;margin:0 auto;padding:32px 52px}
+.toc-label{font-size:10px;letter-spacing:3px;color:var(--orange);font-weight:600;margin-bottom:16px}
+.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.toc-link{
+  font-size:12px;color:var(--mid);text-decoration:none;
+  padding:8px 12px;border-radius:8px;border:1px solid var(--border);
+  background:var(--off);transition:all .18s;font-weight:400;
+  display:flex;align-items:center;gap:8px;
+}
+.toc-link::before{content:'→';color:var(--orange);font-size:11px}
+.toc-link:hover{border-color:var(--blue);color:var(--navy);background:var(--blue-l)}
+
+/* ── CONTENT ── */
+.content-wrap{padding:0 52px 100px}
+.content-inner{max-width:800px;margin:0 auto}
+
+.section{
+  padding:60px 0;
+  border-bottom:1px solid var(--border);
+}
+.section:last-child{border-bottom:none}
+
+.section-num{
+  font-size:15px;letter-spacing:3px;color:var(--orange);
+  font-weight:600;margin-bottom:8px;
+}
+.section-title{
+  font-family:'Fraunces',serif;font-weight:600;font-size:33px;
+  letter-spacing:-.01em;color:var(--navy);margin-bottom:20px;
+  scroll-margin-top:100px;
+}
+.section-body{font-size:14px;color:var(--mid);font-weight:300;line-height:1.9}
+.section-body p{margin-bottom:16px}
+.section-body p:last-child{margin-bottom:0}
+.section-body strong{font-weight:600;color:var(--navy)}
+.section-body ul{padding-left:20px;margin-bottom:16px}
+.section-body ul li{margin-bottom:8px;line-height:1.75}
+.section-body ul li::marker{color:var(--orange)}
+
+/* Callout */
+.callout{
+  background:var(--blue-l);
+  border-radius:10px;padding:16px 20px;
+  margin:20px 0;font-size:13px;color:var(--navy);line-height:1.75;
+}
+.callout.orange{background:var(--blue-l)}
+
+/* Data table */
+.data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px}
+.data-table th{
+  background:var(--navy);color:var(--white);font-weight:600;
+  padding:12px 16px;text-align:left;font-size:11px;letter-spacing:.5px;
+}
+.data-table td{
+  padding:12px 16px;border-bottom:1px solid var(--border);
+  color:var(--mid);font-weight:300;line-height:1.6;vertical-align:top;
+}
+.data-table tr:nth-child(even) td{background:var(--off)}
+.data-table tr:last-child td{border-bottom:none}
+
+/* Footer */
+.site-footer{background:var(--navy);padding:62px 0 34px;color:#fff}
+.footer-wrap{max-width:1200px;margin:0 auto;padding:0 52px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:42px}
+.footer-logo{margin-bottom:14px}
+.footer-logo img{height:64px;width:auto;margin-left:-10px;filter:brightness(0) invert(1)}
+.footer-tag{font-family:'Fraunces',serif;font-size:13.5px;color:rgba(255,255,255,.5);font-weight:500;font-style:italic;line-height:1.6;margin-bottom:16px;max-width:30ch}
+.footer-email{font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:4px;font-weight:400}
+.footer-nav-h{font-family:'Hanken Grotesk',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:15px;font-weight:500}
+.footer-links{display:flex;flex-direction:column;gap:9px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;font-weight:400;transition:color .2s}
+.footer-links a:hover{color:var(--amber)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(255,255,255,.34);font-weight:400;flex-wrap:wrap;gap:10px}
+.footer-bottom a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:var(--amber)}
+
+@media(max-width:640px){
+  nav{height:76px;padding:0 18px}
+  .nav-logo img{height:56px}
+  .nav-back{font-size:12px;gap:6px}
+
+  .hero{padding:112px 22px 46px}
+  .hero-inner{max-width:none}
+  .hero-tag{font-size:11px;letter-spacing:3px;margin-bottom:12px}
+  .hero-h{font-size:42px;line-height:.98;margin-bottom:18px;letter-spacing:0}
+  .hero-meta{display:grid;gap:7px}
+  .hero-meta span{font-size:11.5px;line-height:1.45}
+
+  .toc-inner{padding:22px}
+  .toc-label{font-size:9.5px;letter-spacing:2.4px;margin-bottom:12px}
+  .toc-grid{grid-template-columns:1fr;gap:7px}
+  .toc-link{font-size:12.5px;padding:10px 12px;border-radius:6px}
+
+  .content-wrap{padding:0 22px 64px}
+  .section{padding:42px 0}
+  .section-num{font-size:12px;letter-spacing:2.4px;margin-bottom:8px}
+  .section-title{font-size:26px;line-height:1.08;margin-bottom:16px;scroll-margin-top:90px}
+  .section-body{font-size:14.5px;line-height:1.78}
+  .section-body p{margin-bottom:14px}
+  .section-body ul{padding-left:18px;margin-bottom:14px}
+  .section-body ul li{margin-bottom:8px;line-height:1.62}
+  .callout{border-radius:8px;padding:15px 16px;font-size:13.5px;line-height:1.65;margin:18px 0}
+
+  .data-table{display:block;overflow-x:auto;margin:18px -22px 18px 0;font-size:12.5px;border-radius:8px}
+  .data-table th,.data-table td{min-width:172px;padding:11px 12px;line-height:1.55}
+  .data-table th{font-size:10px}
+
+  .site-footer{padding:46px 0 28px}
+  .footer-wrap{padding:0 24px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px 24px;align-items:start;margin-bottom:34px}
+  .footer-top > div:first-child{grid-column:1 / -1}
+  .footer-top > div:nth-child(2){grid-column:1}
+  .footer-top > div:nth-child(3){grid-column:2;grid-row:2}
+  .footer-top > div:nth-child(4){grid-column:2;grid-row:2;margin-top:112px}
+  .footer-logo img{height:58px}
+  .footer-tag{font-size:13px;margin-bottom:14px}
+  .footer-nav-h{font-size:10.5px;margin-bottom:12px}
+  .footer-links{gap:8px}
+  .footer-links a{font-size:12.5px;line-height:1.3}
+  .footer-bottom{align-items:flex-start;flex-direction:column;gap:10px;font-size:11.5px;padding-top:22px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><img src="mindzi-logo-light.png" alt="Mindzi"></a>
+  <a class="nav-back" href="index.html">Back to website</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">LEGAL</div>
+    <h1 class="hero-h">PRIVACY<br>POLICY</h1>
+    <div class="hero-meta">
+      <span><strong>Effective date:</strong> July 2026</span>
+      <span><strong>Last updated:</strong> May 2026</span>
+      <span><strong>Operated by:</strong> Trev Pery Consulting</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrap">
+  <div class="toc-inner">
+    <div class="toc-label">CONTENTS</div>
+    <div class="toc-grid">
+      <a class="toc-link" href="#who-we-are">Who we are</a>
+      <a class="toc-link" href="#what-we-collect">What data we collect</a>
+      <a class="toc-link" href="#children">Children's data</a>
+      <a class="toc-link" href="#how-we-use">How we use your data</a>
+      <a class="toc-link" href="#sharing">Who we share data with</a>
+      <a class="toc-link" href="#results-recognition">Competition results &amp; recognition</a>
+      <a class="toc-link" href="#retention">How long we keep data</a>
+      <a class="toc-link" href="#rights">Your rights</a>
+      <a class="toc-link" href="#grievance">Grievance officer</a>
+      <a class="toc-link" href="#security">Data security</a>
+      <a class="toc-link" href="#cookies">Cookies</a>
+      <a class="toc-link" href="#changes">Changes to this policy</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+  <div class="content-inner">
+
+    <!-- Short version -->
+    <div class="section">
+      <div class="callout orange">
+        <strong>The short version:</strong> We collect the information needed to operate the Mindzi platform, run the competition, issue certificates, communicate with participants and schools, and inform you about relevant Mindzi programmes, competitions, and educational initiatives. We do not sell your data. We do not share your personal information with third parties except where necessary to deliver the service. Children's data is handled with extra care and is collected only with parental or guardian consent.
+      </div>
+    </div>
+
+    <!-- Who we are -->
+    <div class="section" id="who-we-are">
+      <div class="section-num">01</div>
+      <h2 class="section-title">WHO WE ARE</h2>
+      <div class="section-body">
+        <p>Mindzi is an AI thinking skills competition for school students, operated by <strong>Trev Pery Consulting</strong>, Mumbai, Maharashtra, India.</p>
+        <p>You can reach us at <strong>hello@mindziai.com</strong> for any privacy-related queries.</p>
+      </div>
+    </div>
+
+    <!-- What we collect -->
+    <div class="section" id="what-we-collect">
+      <div class="section-num">02</div>
+      <h2 class="section-title">WHAT DATA WE COLLECT AND WHY</h2>
+      <div class="section-body">
+        <table class="data-table">
+          <tr><th>Who</th><th>What we collect</th><th>Why</th></tr>
+          <tr>
+            <td><strong>Child</strong></td>
+            <td>Full name, class, school name, school board, city, state, date of birth (optional)</td>
+            <td>Name appears on certificate. School and class assign the student to the correct competition cohort.</td>
+          </tr>
+          <tr>
+            <td><strong>Parent / Guardian</strong></td>
+            <td>Full name, relationship to child, mobile number, email address</td>
+            <td>To send confirmation, payment link, platform access, competition schedule, and results.</td>
+          </tr>
+          <tr>
+            <td><strong>Student (platform usage)</strong></td>
+            <td>Module progress, XP earned, practice attempt history, exam responses, scores</td>
+            <td>To show progress, unlock Practice Challenge, calculate rankings, and generate certificates.</td>
+          </tr>
+          <tr>
+            <td><strong>School coordinator</strong></td>
+            <td>Name, designation, mobile number, email address</td>
+            <td>Primary operational contact for competition coordination at school level.</td>
+          </tr>
+          <tr>
+            <td><strong>Principal</strong></td>
+            <td>Name, email address</td>
+            <td>School communications and partnership correspondence.</td>
+          </tr>
+          <tr>
+            <td><strong>All users (automatic)</strong></td>
+            <td>Browser type, device type, IP address, and basic technical information</td>
+            <td>To operate the platform, troubleshoot issues, improve performance, and maintain security.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Children -->
+    <div class="section" id="children">
+      <div class="section-num">03</div>
+      <h2 class="section-title">CHILDREN'S DATA - SPECIAL NOTICE</h2>
+      <div class="section-body">
+        <div class="callout">
+          Mindzi serves students who may be under 18. We do not allow students to register themselves. All student registrations are initiated by a parent or guardian who provides consent on behalf of the child.
+        </div>
+        <p>By registering your child you confirm you are their parent or legal guardian and you consent to the collection and use of your child's data as described in this policy.</p>
+        <p>We do not knowingly collect data from any child without parental consent. If you believe we hold data about a child without proper consent, please contact us at <strong>hello@mindziai.com</strong> and we will delete it promptly.</p>
+        <p>This policy is consistent with India's Digital Personal Data Protection Act 2023 (DPDP Act) as it relates to the processing of children's personal data.</p>
+      </div>
+    </div>
+
+    <!-- How we use -->
+    <div class="section" id="how-we-use">
+      <div class="section-num">04</div>
+      <h2 class="section-title">HOW WE USE YOUR DATA</h2>
+      <div class="section-body">
+        <p>We use the data we collect for the following purposes only:</p>
+        <ul>
+          <li>To process pre-registration and registration</li>
+          <li>To send payment links when registrations open</li>
+          <li>To provide access to the study platform</li>
+          <li>To administer the competition across all rounds</li>
+          <li>To calculate rankings and generate certificates</li>
+          <li>To produce school performance reports for school coordinators</li>
+          <li>To send competition-related communications - schedules, results, certificates</li>
+          <li>To improve the platform based on anonymised usage patterns</li>
+          <li>To comply with legal obligations under Indian law</li>
+        </ul>
+        <p>We do not sell or rent your personal data to any third party. We do not use children's personal data for advertising, profiling, behavioural targeting, or commercial targeting.</p>
+        <p>We may occasionally inform parents, guardians, schools, and educators about Mindzi or related educational programmes, competitions, learning resources, events, certifications, or services that may be relevant to them. Recipients may opt out of these communications at any time.</p>
+      </div>
+    </div>
+
+    <!-- Sharing -->
+    <div class="section" id="sharing">
+      <div class="section-num">05</div>
+      <h2 class="section-title">WHO WE SHARE DATA WITH</h2>
+      <div class="section-body">
+        <p>We share data only in these limited circumstances:</p>
+        <ul>
+          <li><strong>Payment processor (Razorpay):</strong> When you complete payment, your transaction is processed by Razorpay. We share only what is necessary for the transaction. Razorpay's own privacy policy governs their handling of payment data.</li>
+          <li><strong>Email service provider:</strong> We use a third-party service to send transactional emails. They process email addresses on our behalf under a data processing agreement and do not use this data for any other purpose.</li>
+          <li><strong>Technology and platform service providers:</strong> We may use trusted third-party providers for hosting, cloud storage, security, analytics, email delivery, communications, and platform operations. These providers process data only as necessary to provide services on our behalf and are not permitted to use the data for their own purposes.</li>
+          <li><strong>School coordinators:</strong> Coordinators may access student names, participation status, rankings, scores, certificates, and school performance reports relating only to students registered through their school. Parent contact information is not shared with school coordinators unless specifically authorised.</li>
+          <li><strong>Legal requirements:</strong> We will disclose data if required to do so by Indian law or a valid court order.</li>
+        </ul>
+        <p>We do not share individual student data with any other organisation, school, or third party.</p>
+      </div>
+    </div>
+
+    <!-- Competition results -->
+    <div class="section" id="results-recognition">
+      <div class="section-num">06</div>
+      <h2 class="section-title">COMPETITION RESULTS, LEADERBOARDS &amp; RECOGNITION</h2>
+      <div class="section-body">
+        <p>As part of the competition, Mindzi may publish competition results, rankings, leaderboards, certificates, school standings, winner announcements, and related recognition materials.</p>
+        <p>This may include a student's name, school name, city, ranking, percentile, score, achievement, certificate, or award category.</p>
+        <p>Photographs, videos, testimonials, or student work will only be published where appropriate consent has been obtained from the parent, guardian, school, or participant, as applicable.</p>
+        <p>We will never publish personal contact information, residential addresses, payment information, or other sensitive personal data.</p>
+      </div>
+    </div>
+
+    <!-- Retention -->
+    <div class="section" id="retention">
+      <div class="section-num">07</div>
+      <h2 class="section-title">HOW LONG WE KEEP YOUR DATA</h2>
+      <div class="section-body">
+        <ul>
+          <li><strong>Pre-registration data:</strong> Until you complete registration, withdraw consent, or request deletion of your information.</li>
+          <li><strong>Registration and competition data:</strong> For 3 years after the competition year in which the student participated. This allows certificates to be re-issued if lost.</li>
+          <li><strong>School registration data:</strong> For as long as the school remains a partner, plus 1 year after the relationship ends.</li>
+          <li><strong>Technical / usage data:</strong> Retained in aggregate, anonymised form for platform improvement. Individual session data is deleted after 90 days.</li>
+        </ul>
+        <p>You can request deletion at any time - see Your Rights below.</p>
+      </div>
+    </div>
+
+    <!-- Rights -->
+    <div class="section" id="rights">
+      <div class="section-num">08</div>
+      <h2 class="section-title">YOUR RIGHTS</h2>
+      <div class="section-body">
+        <p>Under the DPDP Act 2023 and applicable Indian data protection law, you have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> the data we hold about you or your child</li>
+          <li><strong>Correct</strong> inaccurate data - particularly the child's name as it appears on the certificate</li>
+          <li><strong>Request deletion</strong> of your data</li>
+          <li><strong>Withdraw consent</strong> for communications at any time</li>
+          <li><strong>Receive a copy</strong> of your data in a portable format</li>
+          <li><strong>Raise a grievance</strong> if you believe your data has been mishandled</li>
+        </ul>
+        <p>To exercise any of these rights, email <strong>hello@mindziai.com</strong> with the subject line <em>"Data Request"</em>. We will respond within 30 days.</p>
+        <p>Parents or guardians may withdraw consent at any time. Withdrawal of consent may affect our ability to provide competition participation, platform access, certificates, rankings, or related services.</p>
+      </div>
+    </div>
+
+    <!-- Grievance -->
+    <div class="section" id="grievance">
+      <div class="section-num">09</div>
+      <h2 class="section-title">GRIEVANCE OFFICER</h2>
+      <div class="section-body">
+        <p>If you have a complaint, grievance, or concern regarding the handling of personal data, please contact:</p>
+        <p><strong>Privacy &amp; Grievance Officer, Mindzi</strong><br>Email: <strong>hello@mindziai.com</strong></p>
+        <p>We will acknowledge grievances within a reasonable period and work to resolve them in accordance with applicable law.</p>
+      </div>
+    </div>
+
+    <!-- Security -->
+    <div class="section" id="security">
+      <div class="section-num">10</div>
+      <h2 class="section-title">DATA SECURITY</h2>
+      <div class="section-body">
+        <p>We take reasonable technical and organisational measures to protect your data. The platform uses HTTPS encryption. Access to student data is restricted to authorised Mindzi team members only. We do not store payment card details - all payment processing is handled by Razorpay.</p>
+        <p>No data transmission over the internet is 100% secure. We cannot guarantee absolute security but we are committed to protecting your data to the best of our ability.</p>
+      </div>
+    </div>
+
+    <!-- Cookies -->
+    <div class="section" id="cookies">
+      <div class="section-num">11</div>
+      <h2 class="section-title">COOKIES</h2>
+      <div class="section-body">
+        <p>We use essential cookies to keep you logged in and remember your session. We do not use advertising cookies or tracking cookies from third parties.</p>
+        <p>You can disable cookies in your browser settings but this may prevent the platform from functioning correctly.</p>
+      </div>
+    </div>
+
+    <!-- Changes -->
+    <div class="section" id="changes">
+      <div class="section-num">12</div>
+      <h2 class="section-title">CHANGES TO THIS POLICY</h2>
+      <div class="section-body">
+        <p>If we make material changes to this Policy, we may notify registered users by email, through the platform, or by posting a prominent notice on the Mindzi website. The current version is always available at <strong>mindziai.com/privacy</strong>.</p>
+        <p>Where required by applicable law, we will seek fresh consent before processing personal data for materially different purposes than those described in this policy.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="mindzi-logo-light.png" alt="Mindzi"></div>
+        <div class="footer-tag">Preparing every young mind for an AI-shaped future.</div>
+        <div class="footer-email">hello@mindziai.com</div>
+        <div class="footer-email">Trev Pery Consulting &middot; Mumbai, India</div>
+      </div>
+      <div>
+        <div class="footer-nav-h">Navigate</div>
+        <div class="footer-links">
+          <a href="index.html#belief">The Future</a>
+          <a href="index.html#dimensions">The Learning Journey</a>
+          <a href="index.html#competition">The Challenge</a>
+          <a href="index.html#parents">Parents</a>
+          <a href="index.html#schools">Schools</a>
+          <a href="index.html#why">Why Mindzi</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-nav-h">Parents</div>
+        <div class="footer-links">
+          <a href="register-parent.html">Register</a>
+          <a href="results.html">Results &amp; Certificates</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-nav-h">Schools</div>
+        <div class="footer-links">
+          <a href="index.html#schools">Partnership Benefits</a>
+          <a href="register-school.html">Register Your School</a>
+          <a href="school-login.html">School Dashboard</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Mindzi. All rights reserved.</span>
+      <span><a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
