@@ -174,22 +174,8 @@ nav.menu-open .nav-menu-toggle::after{transform:translateY(-7px) rotate(-45deg)}
     position:relative;
     display:inline-block;
 }
-.hero-rotator{position:relative;min-height:390px;margin-top:4px}
-.hero-frame{
-  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;
-  opacity:0;transform:translateY(20px);pointer-events:none;
-}
-.hero-headline-frame{animation:heroHeadlineCycle 8s ease-in-out infinite}
-.hero-copy-frame{animation:heroCopyCycle 8s ease-in-out infinite}
-@keyframes heroHeadlineCycle{
-  0%,38%{opacity:1;transform:translateY(0)}
-  46%,100%{opacity:0;transform:translateY(-16px)}
-}
-@keyframes heroCopyCycle{
-  0%,44%{opacity:0;transform:translateY(18px)}
-  52%,88%{opacity:1;transform:translateY(0)}
-  96%,100%{opacity:0;transform:translateY(-12px)}
-}
+.hero-rotator{position:static;min-height:0;margin-top:0}
+.hero-frame{position:static;display:block;opacity:1;transform:none;pointer-events:auto}
 
 .hero-headline-blur{
     display:none;
@@ -218,8 +204,9 @@ nav.menu-open .nav-menu-toggle::after{transform:translateY(-7px) rotate(-45deg)}
   color:#E7C36B;;margin-top:.5em;
 }
 .hero-sub{
-  font-size:clamp(17px,1.8vw,25px);color:rgba(255,255,255,.9);font-weight:500;
-  line-height:1.46;max-width:36ch;margin:0;
+  font-size:clamp(14px,1.2vw,16px);color:rgba(255,255,255,.76);font-weight:400;
+  line-height:1.64;max-width:56ch;margin:22px 0 36px;
+  opacity:0;transform:translateY(18px);
 }
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(18px)}
 .btn-primary{
@@ -448,6 +435,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 .footer-bottom a:hover{color:var(--yellow)}
 
 .mobile-only{display:none}
+.mobile-disclosure{display:none}
 .mobile-disclosure summary{display:none}
 .mobile-disclosure > :not(summary){margin-top:0}
 
@@ -543,6 +531,21 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     position:absolute;left:26px;right:26px;top:0;bottom:0;width:auto;min-height:0;
     margin:0;display:flex;align-items:center;justify-content:flex-start;padding:86px 0 148px;
   }
+  .hero-frame{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    opacity:0;transform:translateY(20px);pointer-events:none;
+  }
+  .hero-headline-frame{animation:heroHeadlineCycle 8s ease-in-out infinite}
+  .hero-copy-frame{animation:heroCopyCycle 8s ease-in-out infinite}
+  @keyframes heroHeadlineCycle{
+    0%,38%{opacity:1;transform:translateY(0)}
+    46%,100%{opacity:0;transform:translateY(-16px)}
+  }
+  @keyframes heroCopyCycle{
+    0%,44%{opacity:0;transform:translateY(18px)}
+    52%,88%{opacity:1;transform:translateY(0)}
+    96%,100%{opacity:0;transform:translateY(-12px)}
+  }
   .hero-frame{justify-content:center;align-items:flex-start;text-align:left}
   .hero-headline-wrap{display:flex;justify-content:flex-start;width:100%}
   .hero-h1{
@@ -557,6 +560,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .hero-sub{
     font-size:clamp(20px,5.6vw,24px);line-height:1.42;max-width:28ch;margin:0;
     font-family:'Fraunces',serif;font-style:italic;color:#fff;text-align:left;
+    opacity:1;transform:none;
   }
   .hero-ctas{
     position:absolute;left:26px;right:26px;bottom:34px;width:auto;max-width:420px;
@@ -629,7 +633,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .footer-top > div:nth-child(4){grid-column:2;grid-row:2;margin-top:116px}
   .footer-bottom{align-items:flex-start;flex-direction:column;gap:10px}
   .mobile-only{display:block}
-  .mobile-disclosure{border-top:1px solid var(--line-2);padding-top:16px}
+  .mobile-disclosure{display:block;border-top:1px solid var(--line-2);padding-top:16px}
   .mobile-disclosure summary{
     display:flex;align-items:center;justify-content:space-between;list-style:none;
     font-weight:700;color:var(--blue-d);cursor:pointer;padding:8px 0;
@@ -712,7 +716,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         </div>
       </div>
       <div class="hero-frame hero-copy-frame">
-        <p class="hero-sub" id="hsub">Mindzi gives students guided study material to learn how AI really works, then tests whether they can question what AI produces, catch where it goes wrong, and use it with judgment.</p>
+        <p class="hero-sub" id="hsub">Mindzi is built around a simple question: will your child be ready for a world where AI is everywhere? Mindzi gives students guided study material to learn how AI really works, then tests whether they can question what AI produces, catch where it goes wrong, and use it with judgment - skills that matter in every career.</p>
       </div>
     </div>
     <div class="hero-ctas" id="hctas">
@@ -747,7 +751,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 <section class="sec-pad alt" id="dimensions">
   <div class="wrap">
     <div class="section-tag">The Learning Journey</div>
-    <p class="journey-intro">The learning platform is self-paced and built around real situations rather than definitions. AIRA, an AI character, deliberately makes mistakes so students learn to catch them. Most students complete it over a few sittings.</p>
+    <p class="journey-intro">The learning platform is where students prepare. It opens with a Foundation module that explains how AI actually works, then moves through six dimensions - from giving AI clear instructions, to spotting when it's wrong, to using it creatively and responsibly. Each one is self-paced and built around real situations rather than definitions, guided by AIRA, an AI character who deliberately makes mistakes so students learn to catch them. Most students complete it over a few sittings.</p>
     <details class="mobile-disclosure" open>
       <summary>Foundation and dimensions</summary>
       <p class="journey-intro">Students begin with a Foundation module, then move through six future-readiness dimensions: prompting clearly, spotting errors, using AI creatively, and applying judgment in real situations.</p>
@@ -852,7 +856,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       <div>
         <div class="cc-tag">The Ranked Certificate</div>
         <div class="cc-h">More than a score. A specific record of how your child thinks.</div>
-        <div class="cc-body">Every student receives a personalised digital certificate showing their national percentile, scores across all six dimensions, and their strongest area.</div>
+        <div class="cc-body">Every student receives a personalised digital certificate. Rather than a generic "participant," it records their national percentile, their score across all six dimensions, and the one dimension where they were strongest - for example, <em>"Top 8% nationally, strongest in spotting AI errors."</em> A percentile shows where a student stands among everyone who competed: top 8% means they scored higher than 92 out of every 100 students nationally.</div>
         <details class="mobile-disclosure" open>
           <summary>What the percentile means</summary>
           <div class="cc-body">Rather than a generic "participant," the certificate records the student's national percentile and strongest dimension - for example, <em>"Top 8% nationally, strongest in spotting AI errors."</em> Top 8% means they scored higher than 92 out of every 100 students nationally.</div>
@@ -962,7 +966,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       <div>
         <div class="section-tag">Parents</div>
         <h2 class="fp-headline">Register<br>your child.</h2>
-        <p class="fp-sub">Registration includes the learning platform, Practice Challenge, School Round entry, and a nationally ranked digital certificate.</p>
+        <p class="fp-sub">The registration fee covers everything a student needs for the School Round: full access to the learning platform, the Practice Challenge, School Round entry, and a nationally ranked digital certificate. Students who qualify for the City and National Rounds pay a separate, smaller fee for each of those exams.</p>
         <details class="mobile-disclosure" open>
           <summary>What is included</summary>
           <p class="fp-sub">Students who qualify for the City and National Rounds pay a separate, smaller fee for each of those exams.</p>
@@ -1010,7 +1014,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <h2 class="fs-headline">Bring Mindzi to your school.</h2>
       </div>
       <div class="fs-desc">
-        <p>Mindzi is open to every school in India - CBSE, ICSE, IB, Cambridge, or State Board. It gives students a structured national AI challenge built around applied judgment.</p>
+        <p>Mindzi is open to every school in India - CBSE, ICSE, IB, Cambridge, or State Board. AI thinking skills are not a requirement of one syllabus; they matter for every student, whatever board they follow.</p>
         <details class="mobile-disclosure" open>
           <summary>How it fits different schools</summary>
           <p>For CBSE schools rolling out the CT&amp;AI curriculum, Mindzi is the competition layer that takes students from knowledge to applied judgment. For schools where AI is taught more technically, it tests the thinking side the technical subject leaves out.</p>
@@ -1053,7 +1057,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     <div class="commit-strip">
       <div>
         <div class="commit-h">What partnering involves.</div>
-        <div class="commit-body">Partnering with Mindzi asks very little of a school: one coordinator, a few hours across the year, and a computer lab for sixty minutes on competition day.</div>
+        <div class="commit-body">Partnering with Mindzi asks very little of a school: one coordinator, a few hours across the year, the parent communications we prepare for the coordinator to circulate to parents, and a computer lab for sixty minutes on competition day. In return, your students gain access to a unique learning and a nationally benchmarked challenge, you receive a school-level insights report, and your school is recognised on every certificate earned by your students.</div>
         <details class="mobile-disclosure" open>
           <summary>What the school receives</summary>
           <div class="commit-body">In return, your students gain access to a unique learning journey and a nationally benchmarked challenge, you receive a school-level insights report, and your school is recognised on every certificate earned by your students.</div>
@@ -1079,7 +1083,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     <div class="why-grid">
       <div>
         <h2 class="sec-head" style="margin-bottom:24px">Built for every school. Every board.</h2>
-        <p class="why-body">Students today are beginning to learn about AI in school. MINDZI takes the next step: giving them a chance to apply that knowledge through real-world scenarios, national rankings, live leaderboards, and meaningful performance insights.</p>
+        <p class="why-body">Students today are beginning to learn about AI in school. MINDZI takes the next step: giving them a chance to apply that knowledge through real-world scenarios, national rankings, live leaderboards, and meaningful performance insights. Whether a student studies under CBSE, ICSE, IB, Cambridge, or a State Board, the future-ready skills being tested are the same.</p>
         <details class="mobile-disclosure" open>
           <summary>Why it works across boards</summary>
           <p class="why-body">Whether a student studies under CBSE, ICSE, IB, Cambridge, or a State Board, the future-ready skills being tested are the same.</p>
@@ -1256,10 +1260,16 @@ const revealDistance = isMobile ? 16 : 34;
 const revealDuration = isMobile ? .45 : .7;
 const revealStagger = isMobile ? .04 : .1;
 
-gsap.timeline({ delay:.25 })
+const heroIntro = gsap.timeline({ delay:.25 })
   .to('#htitle', { opacity:1, y:0, duration:.8, ease:'power3.out' })
   .to('#hby',    { opacity:1, y:0, duration:.7, ease:'power3.out' }, '-=.5')
-  .to('#h1',     { opacity:1, y:0, duration:1.0, ease:'power3.out' }, '-=.45')
+  .to('#h1',     { opacity:1, y:0, duration:1.0, ease:'power3.out' }, '-=.45');
+
+if (!isMobile) {
+  heroIntro.to('#hsub', { opacity:1, y:0, duration:.7, ease:'power3.out' }, '-=.5');
+}
+
+heroIntro
   .to('#hctas',  { opacity:1, y:0, duration:.6, ease:'power3.out' }, '-=.45')
   .to('#hscroll',{ opacity:1, duration:.6 }, '-=.2');
 
