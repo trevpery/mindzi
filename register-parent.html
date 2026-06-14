@@ -488,6 +488,12 @@ async function handleSubmit(e) {
     document.getElementById('successOverlay')
       .classList.add('show');
 
+    gtag('event', 'parent_registration', {
+      event_category: 'Registration',
+      event_label: 'Parent Registration',
+      value: 1
+    });  
+
     document.getElementById('parentForm')
       .reset();
 

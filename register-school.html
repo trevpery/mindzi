@@ -534,6 +534,12 @@ async function handleSchoolSubmit(e) {
     document.getElementById('successOverlay')
       .classList.add('show');
 
+    gtag('event', 'school_registration', {
+      event_category: 'Registration',
+      event_label: 'School Registration',
+      value: 1
+    });  
+
     document.getElementById('schoolForm')
       .reset();
 
